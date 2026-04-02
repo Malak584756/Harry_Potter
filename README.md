@@ -7,17 +7,22 @@
 ## 📌 About The Project
 
 This project is an AI-powered system inspired by the **Harry Potter universe** 🪄.
+
 It predicts which Hogwarts house you belong to based on your personality traits using Machine Learning.
 
 ---
 
-## 🚀 Features
+## Features
 
-🔮 AI model that predicts your Hogwarts house
-🧠 Based on personality traits (Bravery, Intelligence, Loyalty, Ambition, etc.)
-🎮 Interactive quiz experience
-🖥️ User-friendly interface built with NiceGUI
-🎵 Magical theme with sounds & visuals
+AI model that predicts your Hogwarts house.
+
+Based on personality traits (Bravery, Intelligence, Loyalty, Ambition, etc.).
+
+Interactive quiz experience.
+
+User-friendly interface built with NiceGUI.
+
+Magical theme with sounds & visuals.
 
 ---
 
@@ -37,14 +42,14 @@ It predicts which Hogwarts house you belong to based on your personality traits 
 
 ## 📸 Screenshots
 
-### 🏠 Home Screen
+### Home Screen
 
 ![Home](images/screenshots/home.png)
 
-### 🧪 Quiz Interface
+### Quiz Interface
 
 ![Quiz](images/screenshots/quiz.png)
 
-### 🔮 Prediction Result
+### Prediction Result
 
 ![Result](images/screenshots/result.png)
