@@ -6,7 +6,7 @@
 
 ## 📌 About The Project
 
-This project is an AI-powered system inspired by the **Harry Potter universe** 🪄.
+This project is an AI-powered system inspired by the **Harry Potter universe** .
 
 It predicts which Hogwarts house you belong to based on your personality traits using Machine Learning.
 
