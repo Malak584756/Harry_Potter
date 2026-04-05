@@ -344,7 +344,7 @@ def show_question():
         # Prevent showing result before answering at least 10 questions
         def try_show_result():
             if len(answers) >= 10:
-                show_result(final=False)
+                show_result(final=False,instant=True)
             else:
                 ui.notify("Please answer at least 10 questions first.", color="red")
 
@@ -377,7 +377,7 @@ def select(q, choice):
     show_question()
 
 # Calculates scores and predicts the Hogwarts house
-def show_result(final=True):
+def show_result(final=True, instant=False):
     stop_music()
     question_container.clear()
 
@@ -388,27 +388,72 @@ def show_result(final=True):
         if ans:
             scores[q["options"][ans]] += 1
 
-    # Normalize scores to range 1–10
+    # Normalize scores
     for key, value in scores.items():
         if key == "Dueling Skills":
             scores[key] = max(0, min(10, value))
         else:
-            scores[key] = max(1, min(10, value))   
+            scores[key] = max(1, min(10, value))
 
-    # Predict the house
+    # Predict house
     features = np.array([[scores[t] for t in traits]])
     pred = log_reg.predict(features)
     best_house = le.inverse_transform(pred)[0]
-    print(best_house)
 
-    # Display  result
-    with question_container:
-        ui.label("🎩 Your House is...").classes("text-3xl text-yellow-300 mt-6")
-        ui.image(house_images[best_house]).classes("w-64 mx-auto mt-4")
-        ui.label(house_tips[best_house]).classes("text-xl text-yellow-200 mt-4 text-center")
+    # instanr result (small hat)
+    if instant:
+        with question_container:
+            ui.label("🎩 Your House is...")\
+                .classes("text-3xl text-yellow-300 mt-6 text-center")
 
-        ui.run_javascript(f"var audio = new Audio('{house_sounds[best_house]}'); audio.play();")
-        ui.button("Restart", on_click=restart).classes("btn mt-4")
+            ui.image(house_images[best_house])\
+                .classes("w-64 mx-auto mt-4")
+
+            ui.label(house_tips[best_house])\
+                .classes("text-xl text-yellow-200 mt-4 text-center")
+
+            ui.run_javascript(
+                f"var audio = new Audio('{house_sounds[best_house]}'); audio.play();"
+            )
+
+            ui.button("Restart", on_click=restart)\
+                .classes("btn mt-6")
+
+    # NORMAL END → BIG HAT FIRST
+    else:
+        with question_container:
+            ui.label("🎩 The Sorting Hat is ready...")\
+                .classes("text-3xl text-yellow-300 text-center mt-6")
+
+            big_hat = ui.image("/images/sorting.png")\
+                .classes("w-80 mx-auto mt-10 cursor-pointer animate-bounce")
+
+            ui.label("Click the hat to reveal your house...")\
+                .classes("text-white text-center mt-4")
+
+            def reveal_result(e):
+                question_container.clear()
+
+                with question_container:
+                    ui.label("🎩 Your House is...")\
+                        .classes("text-3xl text-yellow-300 mt-6 text-center")
+
+                    ui.image(house_images[best_house])\
+                        .classes("w-64 mx-auto mt-4")
+
+                    ui.label(house_tips[best_house])\
+                        .classes("text-xl text-yellow-200 mt-4 text-center")
+
+                    ui.run_javascript(
+                        f"var audio = new Audio('{house_sounds[best_house]}'); audio.play();"
+                    )
+
+                    ui.button("Restart", on_click=restart)\
+                        .classes("btn mt-6")
+
+            big_hat.on("click", reveal_result)
+
+    big_hat.on("click", reveal_result)
 def restart():
     start_screen()
 
