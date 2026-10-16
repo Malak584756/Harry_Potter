@@ -7,7 +7,6 @@
 [![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Machine Learning](https://img.shields.io/badge/Model-Logistic%20Regression-orange?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![UI Framework](https://img.shields.io/badge/UI-NiceGUI-green?style=for-the-badge&logo=python&logoColor=white)](https://nicegui.io/)
-[![GitHub license](https://img.shields.io/github/license/Malak584756/Harry_Potter?style=for-the-badge&color=purple)](https://github.com/Malak584756/Harry_Potter/blob/main/LICENSE)
 
 </div>
 
@@ -25,6 +24,19 @@ The application immerses users in the magical wizarding world through an asynchr
 - **Multi-Sensory UI:** Synchronized audio effects, dynamic house crests, and an atmospheric Hogwarts theme built with **NiceGUI**.
 
 ---
+##  User Interface Preview
+<div align="center">
+
+### Home Page
+<img src="images/home.png" alt="Home Page" width="80%"/>
+
+###  Quiz Questions
+<img src="images/quizz.png" alt="Quiz Questions" width="80%"/>
+
+###  Sorting Result & Trait Breakdown
+<img src="images/result.png" alt="Sorting Result" width="80%"/>
+
+</div>
 
 ##  System Architecture & Workflow
 
@@ -55,3 +67,7 @@ The application immerses users in the magical wizarding world through an asynchr
 | **Hufflepuff** | 0.99 | 0.97 | 0.98 |
 | **Ravenclaw** | 0.99 | 0.99 | 0.99 |
 | **Slytherin** | 1.00 | 1.00 | 1.00 |
+
+---
+ ## Future Roadmap
+- **Biometric Sentiment Analysis**: Utilizing OpenCV to detect user emotions during the ceremony for dynamic trait scoring.  
